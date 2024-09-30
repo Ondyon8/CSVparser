@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CSV Parser Example</string>
+    <string name="cancel">Cancel</string>
+    <string name="top_label_text">CSV parsed data</string>
+</resources>

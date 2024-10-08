@@ -25,7 +25,7 @@ class MainViewModel (
     val snackbar: LiveData<String?>
         get() = _snackBar
 
-    private val _spinner = MutableLiveData<Boolean>(false)
+    private val _spinner by lazy { MutableLiveData<Boolean>(false) }
     val spinner: LiveData<Boolean>
         get() = _spinner
 
@@ -34,7 +34,9 @@ class MainViewModel (
         _snackBar.value = null
     }
 
-    fun retrieveData() {
+    fun retrieveData(forced: Boolean = false) {
+        if ((lines.value?.size ?: 0) > 0 && !forced) return
+
         (scope ?: viewModelScope).launch {
             try {
                 _spinner.value = true

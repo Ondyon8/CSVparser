@@ -65,7 +65,7 @@ class MainViewModelTests {
 
     @Test
     fun testRepoFetchData() = runBlocking {
-        val mockResponseString = "Tile1,Title2\r\nValue1,Value2"
+        val mockResponseString = "Title1,Title2\r\nValue1,Value2"
         val expectedList = listOf(
             CsvLine(
                 values = listOf("Value1","Value2"),
